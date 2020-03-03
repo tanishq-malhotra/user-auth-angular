@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { environment } from "@environments/environment";
 import { UserModel } from "@app/_models";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class UserService {
 
     constructor(private http: HttpClient){}
