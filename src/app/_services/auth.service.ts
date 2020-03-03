@@ -6,10 +6,10 @@ import { environment } from "@environments/environment";
 import { UserModel } from "@app/_models";
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuthService {
   private currentUserSubject: BehaviorSubject<UserModel>;
-  private currentUser: Observable<UserModel>;
+  public currentUser: Observable<UserModel>;
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<UserModel>(
       JSON.parse(localStorage.getItem("cs"))
