@@ -1,40 +1,88 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
-  <mat-vertical-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
-        <mat-form-field>
-          <mat-label>Name</mat-label>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-form-field>
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                 required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-      </div>
-    </mat-step>
-  </mat-vertical-stepper>
-  
+<div class="div-form">
+  <mat-card class="align">
+    <mat-card-header>
+      <mat-card-title>
+        Register
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-vertical-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="idFormGroup">
+          <form [formGroup]="idFormGroup">
+            <ng-template matStepLabel>Fill out user Id</ng-template>
+            <mat-form-field style="width: 500px;">
+              <mat-label>User Id</mat-label>
+              <input matInput placeholder="user id" formControlName="id"  />
+            </mat-form-field>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="nameFormGroup">
+          <form [formGroup]="nameFormGroup">
+            <ng-template matStepLabel>Fill out user name</ng-template>
+            <mat-form-field style="width: 500px;">
+              <mat-label>User Name</mat-label>
+              <input matInput placeholder="name" formControlName="name" />
+            </mat-form-field>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="emailFormGroup">
+          <form [formGroup]="emailFormGroup">
+            <ng-template matStepLabel>Fill out user email</ng-template>
+            <mat-form-field style="width: 500px;">
+              <mat-label>User Email</mat-label>
+              <input
+                matInput
+                placeholder="abc@abc.com"
+                formControlName="email"
+              />
+            </mat-form-field>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="passFormGroup" >
+          <form [formGroup]="passFormGroup">
+            <ng-template matStepLabel>Fill out user password</ng-template>
+            <mat-form-field style="width: 500px;">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="*******" formControlName="pass1" />
+            </mat-form-field>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="cpassFormGroup">
+          <form [formGroup]="cpassFormGroup">
+            <ng-template matStepLabel>Confirm Password</ng-template>
+            <mat-form-field style="width: 500px;">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput placeholder="*******" formControlName="pass2" />
+            </mat-form-field>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="phoneFormGroup">
+          <form [formGroup]="phoneFormGroup">
+            <ng-template matStepLabel>Fill out Phone Number </ng-template>
+            <mat-form-field style="width: 500px;">
+              <mat-label>Phone Number(optional)</mat-label>
+              <input
+                matInput
+                placeholder="1234567890"
+                formControlName="phone"
+              />
+            </mat-form-field>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-raised-button color="primary" (click)="onSubmit()">Register</button>
+            <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>
