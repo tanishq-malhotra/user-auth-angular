@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormControl } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 
 import { AuthService } from "@app/_services";
-import { first } from 'rxjs/operators';
+import { first } from "rxjs/operators";
 
 @Component({
   selector: "app-login",
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   secondFormGroup: FormGroup;
   isLoading: boolean = false;
   error: string;
-  
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -38,14 +38,21 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.isLoading = true;
-    this.authService.login(this.firstFormGroup.value.email, this.secondFormGroup.value.password)
+    this.authService
+      .login(
+        this.firstFormGroup.value.email,
+        this.secondFormGroup.value.password
+      )
       .pipe(first())
-      .subscribe((data)=>{
-        console.log("data  :"+ data);
-      },
-      error=>{
-        this.error = error;
-        this.isLoading = false;
-      })
+      .subscribe(
+        data => {
+          console.log("data  :" + data);
+          this.router.navigate(["/home"], { relativeTo: this.actRoute });
+        },
+        error => {
+          this.error = error;
+          this.isLoading = false;
+        }
+      );
   }
 }

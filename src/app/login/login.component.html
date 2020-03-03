@@ -36,7 +36,10 @@
             <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
             <button mat-raised-button color="primary" (click)="onSubmit()">
               Login
-            </button>
+            </button>   
+          </div>
+          <div> 
+            <mat-spinner *ngIf="isLoading"></mat-spinner>
           </div>
         </mat-step>
       </mat-horizontal-stepper>
