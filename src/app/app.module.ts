@@ -22,7 +22,7 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { HeaderComponent } from "./header/header.component";
 import { DropdownDirective } from "./_shared/dropdown.directive";
-
+import { FlexLayoutModule } from "@angular/flex-layout";
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +43,8 @@ import { DropdownDirective } from "./_shared/dropdown.directive";
     MatButtonModule,
     MatInputModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    FlexLayoutModule
   ],
   providers: [AuthService, UserService],
   bootstrap: [AppComponent]
