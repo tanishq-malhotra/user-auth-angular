@@ -1,5 +1,13 @@
-div.align {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+.div-card{
+  height: auto;
+  width: 100vw;
+  padding-top:250px;
+  
+}
+.align {
+ height: 300px;
+ width: 700px;
+ margin:auto;
+ position: relative;
+ box-shadow: 0px 0px 10px 2px #818181;
 }
