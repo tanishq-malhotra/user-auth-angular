@@ -6,7 +6,7 @@ import { FormGroup, Validators, FormControl } from "@angular/forms";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  isLinear = false;
+  isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
@@ -14,10 +14,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = new FormGroup({
-      firstCtrl: new FormControl(null, Validators.required)
+      email: new FormControl(null, Validators.required)
     });
     this.secondFormGroup = new FormGroup({
-      secondCtrl: new FormControl(null, Validators.required)
+      password: new FormControl(null, Validators.required)
     });
+  }
+
+  onSubmit(){
+      console.log(this.firstFormGroup.value);
+      console.log(this.secondFormGroup.value)
   }
 }
