@@ -2,10 +2,10 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule } from '@angular/common/http'; 
 
 // services
 import { AppRoutingModules } from "./app.routing.module";
-import { AuthService, UserService } from "./_services";
 
 // material ui components
 import { MatStepperModule } from "@angular/material/stepper";
@@ -44,9 +44,10 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatInputModule,
     MatToolbarModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
-  providers: [AuthService, UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
