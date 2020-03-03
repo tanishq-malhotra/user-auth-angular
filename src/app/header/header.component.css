@@ -1,3 +1,6 @@
-h1 {
-    color: darkblue;
+
+.btn-align{
+    right: 20px;
+    position: absolute;
+    
 }

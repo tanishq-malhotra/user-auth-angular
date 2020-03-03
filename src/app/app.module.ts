@@ -12,7 +12,8 @@ import { MatStepperModule } from "@angular/material/stepper";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatCardModule } from "@angular/material/card";
 
 // self components
 import { AppComponent } from "./app.component";
@@ -41,7 +42,8 @@ import { DropdownDirective } from "./_shared/dropdown.directive";
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [AuthService, UserService],
   bootstrap: [AppComponent]

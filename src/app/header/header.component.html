@@ -1,10 +1,7 @@
 <mat-toolbar color="primary">
-  <div class="row">
-    <div class="col-xs-12">
-      My App
-    </div>
-    <div class="col-xs-12">
-     <button mat-button>Login</button>
-    </div>
-  </div>
+  <span role="heading" style="margin-left: 50px;">My App</span>
+  <span class="btn-align">
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/register">Register</button>
+  </span>
 </mat-toolbar>
