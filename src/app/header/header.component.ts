@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
 import { UserModel } from "@app/_models";
 import { AuthService } from "@app/_services";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
@@ -11,7 +12,7 @@ import { AuthService } from "@app/_services";
 export class HeaderComponent implements OnInit, OnDestroy {
   currentUser: UserModel;
   userSubscription: Subscription;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
   ngOnInit() {
     this.userSubscription = this.authService.currentUser.subscribe(
       user => (this.currentUser = user)
@@ -20,5 +21,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(["/login"]);
   }
 }

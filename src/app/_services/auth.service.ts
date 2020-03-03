@@ -4,9 +4,9 @@ import { map } from "rxjs/operators";
 
 import { environment } from "@environments/environment";
 import { UserModel } from "@app/_models";
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: "root" })
 export class AuthService {
   private currentUserSubject: BehaviorSubject<UserModel>;
   public currentUser: Observable<UserModel>;
@@ -34,5 +34,10 @@ export class AuthService {
           return user;
         })
       );
+  }
+
+  logout() {
+    localStorage.removeItem("cs");
+    this.currentUserSubject.next(null);
   }
 }
