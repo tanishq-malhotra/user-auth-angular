@@ -4,5 +4,5 @@ export class UserModel {
   email: string;
   password: string;
   phone?: string;
-  token?: string,
+  token?: string;
 }
