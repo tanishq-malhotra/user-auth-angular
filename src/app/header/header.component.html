@@ -1,8 +1,12 @@
 <mat-toolbar color="primary">
+  <i class="fa fa-bars" aria-hidden="true" (click)="openNav()"></i>
   <span role="heading" style="margin-left: 50px;">My App</span>
-  <span class="btn-align">
+  <span class="btn-align" *ngIf="!currentUser">
     <button mat-button routerLink="/login">Login</button>
     <button mat-button routerLink="/register">Register</button>
-    <button mat-button *ngIf="currentUser">Logout</button>
+    
+  </span>
+  <span class="btn-align">
+    <button mat-button *ngIf="currentUser" (click)="logout()">Logout</button>
   </span>
 </mat-toolbar>

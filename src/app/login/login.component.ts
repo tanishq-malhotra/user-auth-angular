@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log("data  :" + data);
           this.router.navigate(["/home"], { relativeTo: this.actRoute });
         },
         error => {
@@ -54,5 +53,6 @@ export class LoginComponent implements OnInit {
           this.isLoading = false;
         }
       );
+    this.isLoading = false;
   }
 }

@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  currentUser: UserModel;
+  currentUser: UserModel = null;
   userSubscription: Subscription;
   constructor(private authService: AuthService, private router: Router) {}
   ngOnInit() {
@@ -26,5 +26,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logout() {
     this.authService.logout();
     this.router.navigate(["/login"]);
+  }
+  openNav(){
+    document.getElementById("mySidenav").style.width = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
   }
 }

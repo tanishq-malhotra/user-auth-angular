@@ -9,24 +9,27 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getAllUsers() {
-    return this.http.get<UserModel[]>(`${environment.apiUrl}/users`);
+    return this.http.get<UserModel[]>(`${environment.apiUrl}/user/getUsers/`);
   }
 
   registerUser(
-    id: string,
+    uid: string,
     name: string,
     email: string,
-    pass1: string,
-    pass2: string,
+    password: string,
     phone: string
   ) {
-    return this.http.post<any>(`${environment.apiUrl}/user/register`, {
-      id,
+    phone = phone != null ? phone : null;
+    return this.http.post<any>(`${environment.apiUrl}/user/register/`, {
+      uid,
       name,
       email,
-      pass1,
-      pass2,
+      password,
       phone
     });
+  }
+
+    getCSV() {
+    return this.http.get<any>(`${environment.apiUrl}/user/exportCSV/`);
   }
 }
