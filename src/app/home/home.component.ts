@@ -1,26 +1,31 @@
-import { Component, OnInit, OnDestroy, ViewChild } from "@angular/core";
-import { MatTableDataSource } from "@angular/material/table";
+import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { MatSort } from "@angular/material/sort";
-
-import { UserService } from "@app/_services";
-import { UserModel } from "@app/_models";
+import { MatTableDataSource } from "@angular/material/table";
 import { Subscription } from "rxjs";
+import { UserService } from "@app/_services";
+export interface PeriodicElement {
+  name: string;
+  uid: number;
+  email: number;
+  phone: string;
+}
+
 @Component({
   selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.css"]
+  styleUrls: ["./home.component.css"],
+  templateUrl: "./home.component.html"
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  displayedColumns: string[] = ["uid", "name", "email", "phone"];
+  dataSource = new MatTableDataSource([]);
   users: any = [];
   userSubscription: Subscription;
-  displayedColumns: string[] = ["uid", "name", "email", "phone"];
-  dataSource: any = [];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.userSubscription = this.userService.getAllUsers().subscribe(
       data => {
         this.users = data["data"];
@@ -41,7 +46,4 @@ export class HomeComponent implements OnInit, OnDestroy {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
-
-   
 }

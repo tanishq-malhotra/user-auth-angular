@@ -7,19 +7,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 // services
 import { AppRoutingModules } from "./app.routing.module";
 
-// material ui components
-import { MatStepperModule } from "@angular/material/stepper";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatButtonModule } from "@angular/material/button";
-import { MatInputModule } from "@angular/material/input";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatCardModule } from "@angular/material/card";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { MatTableModule } from "@angular/material/table";
-import { MatSidenavModule } from "@angular/material/sidenav";
-import { MatCheckboxModule } from "@angular/material/checkbox";
-import { MatIconModule } from "@angular/material/icon";
-import { MatListModule } from "@angular/material/list";
+// material ui
+import { MaterialComponents } from "./assets/material.modules";
 
 // self components
 import { AppComponent } from "./app.component";
@@ -50,20 +39,9 @@ import { ImportDataComponent } from "./import-data/import-data.component";
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModules,
-    MatStepperModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatCardModule,
     FlexLayoutModule,
     HttpClientModule,
-    MatProgressSpinnerModule,
-    MatTableModule,
-    MatSidenavModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatListModule
+    MaterialComponents
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
