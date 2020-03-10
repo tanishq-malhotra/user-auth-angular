@@ -2,13 +2,8 @@ import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { Subscription } from "rxjs";
+
 import { UserService } from "@app/_services";
-export interface PeriodicElement {
-  name: string;
-  uid: number;
-  email: number;
-  phone: string;
-}
 
 @Component({
   selector: "app-home",
