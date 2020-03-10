@@ -1,6 +1,6 @@
-<div *ngIf="users.length > 0" class="container">
+<div *ngIf="users.length > 0" class="container" style="margin-top: 20px;">
   <mat-form-field>
-    <mat-label>Serach</mat-label>
+    <mat-label>Search</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" />
   </mat-form-field>
 

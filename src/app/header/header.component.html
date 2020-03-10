@@ -1,11 +1,37 @@
 <mat-toolbar color="primary">
-  <span role="heading" style="margin-left: 50px;">My App</span>
-  <span class="btn-align" *ngIf="!currentUser">
-    <button mat-button routerLink="/login">Login</button>
-    <button mat-button routerLink="/register">Register</button>
-    
-  </span>
-  <span class="btn-align">
-    <button mat-button *ngIf="currentUser" (click)="logout()">Logout</button>
-  </span>
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <h1 style="margin-left: 20px;">MyApp</h1>
+    <span class="menu-spacer"></span>
+    <div class="btn-align" *ngIf="!currentUser">
+      <button mat-button routerLink="/login">Login</button>
+      <button mat-button routerLink="/register">Register</button>
+    </div>
+    <div class="btn-align" *ngIf="currentUser">
+      <button mat-button (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <mat-list-item>
+        <a mat-list-item routerLink="/home"> Users List </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a mat-list-item routerLink="/editUser"> Edit User </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a mat-list-item routerLink="/importUsers"> Import Users </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 100vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

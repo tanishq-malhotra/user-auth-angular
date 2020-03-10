@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "home", component: HomeComponent, canActivate: [AuthGuard] },
-  { path: "edit", component: EditComponent, canActivate: [AuthGuard] },
+  { path: "editUser", component: EditComponent, canActivate: [AuthGuard] },
   {
-    path: "import-data",
+    path: "importUsers",
     component: ImportDataComponent,
     canActivate: [AuthGuard]
   }
