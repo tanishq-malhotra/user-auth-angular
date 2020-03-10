@@ -27,7 +27,6 @@ import { HeaderComponent } from "./header/header.component";
 import { DropdownDirective } from "./_shared/dropdown.directive";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { JwtInterceptor } from "@app/_helpers/jwt_interceptors";
-import { SidebarComponent } from "./sidebar/sidebar.component";
 import { EditComponent } from './edit/edit.component';
 import { ImportDataComponent } from './import-data/import-data.component';
 @NgModule({
@@ -38,7 +37,6 @@ import { ImportDataComponent } from './import-data/import-data.component';
     RegisterComponent,
     HomeComponent,
     DropdownDirective,
-    SidebarComponent,
     EditComponent,
     ImportDataComponent
   ],
