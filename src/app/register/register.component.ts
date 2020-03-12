@@ -10,7 +10,8 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
-  isLinear = true;
+  isLinear: boolean = true;
+  passHide: boolean = true;
   isLoading: boolean = false;
   error: string;
 
@@ -61,7 +62,9 @@ export class RegisterComponent implements OnInit {
         .pipe(first())
         .subscribe(
           data => {
-            this.router.navigate(["../login/"], { relativeTo: this.activatedRoute });
+            this.router.navigate(["../login/"], {
+              relativeTo: this.activatedRoute
+            });
           },
           error => {
             this.error = error;

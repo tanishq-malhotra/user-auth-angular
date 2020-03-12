@@ -1,4 +1,4 @@
-<div class="div-card" >
+<div class="div-card">
   <mat-card class="align">
     <mat-card-header>
       <mat-card-title>
@@ -8,7 +8,7 @@
     <mat-card-content>
       <mat-horizontal-stepper [linear]="isLinear" #stepper>
         <mat-step [stepControl]="firstFormGroup">
-          <form [formGroup]="firstFormGroup" >
+          <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Fill out your email</ng-template>
             <mat-form-field>
               <mat-label>Email</mat-label>
@@ -16,7 +16,6 @@
                 matInput
                 placeholder="abc@abc.com"
                 formControlName="email"
-                
               />
             </mat-form-field>
           </form>
@@ -26,7 +25,23 @@
             <ng-template matStepLabel>Fill out your password</ng-template>
             <mat-form-field>
               <mat-label>Your Password</mat-label>
-              <input matInput formControlName="password" placeholder="******" type="password"/>
+              <input
+                matInput
+                formControlName="password"
+                placeholder="******"
+                [type]="passHide ? 'password' : 'text'"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="passHide = !passHide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="passHide"
+              >
+                <mat-icon>{{
+                  passHide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
             </mat-form-field>
           </form>
         </mat-step>
@@ -37,9 +52,9 @@
             <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
             <button mat-raised-button color="primary" (click)="onSubmit()">
               Login
-            </button>   
+            </button>
           </div>
-          <div> 
+          <div>
             <mat-spinner *ngIf="isLoading"></mat-spinner>
           </div>
         </mat-step>

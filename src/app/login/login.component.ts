@@ -12,6 +12,7 @@ import { first } from "rxjs/operators";
 })
 export class LoginComponent implements OnInit {
   isLinear: boolean = true;
+  passHide: boolean = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isLoading: boolean = false;

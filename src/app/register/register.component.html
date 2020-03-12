@@ -12,7 +12,7 @@
             <ng-template matStepLabel>Fill out user Id</ng-template>
             <mat-form-field style="width: 500px;">
               <mat-label>User Id</mat-label>
-              <input matInput placeholder="user id" formControlName="id"  />
+              <input matInput placeholder="user id" formControlName="id" />
             </mat-form-field>
           </form>
         </mat-step>
@@ -40,12 +40,28 @@
           </form>
         </mat-step>
 
-        <mat-step [stepControl]="passFormGroup" >
+        <mat-step [stepControl]="passFormGroup">
           <form [formGroup]="passFormGroup">
             <ng-template matStepLabel>Fill out user password</ng-template>
             <mat-form-field style="width: 500px;">
               <mat-label>Password</mat-label>
-              <input matInput placeholder="*******" formControlName="pass1" type="password"/>
+              <input
+                matInput
+                placeholder="*******"
+                formControlName="pass1"
+                [type]="passHide ? 'password' : 'text'"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="passHide = !passHide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="passHide"
+              >
+                <mat-icon>{{
+                  passHide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
             </mat-form-field>
           </form>
         </mat-step>
@@ -55,7 +71,23 @@
             <ng-template matStepLabel>Confirm Password</ng-template>
             <mat-form-field style="width: 500px;">
               <mat-label>Confirm Password</mat-label>
-              <input matInput placeholder="*******" formControlName="pass2" type="password"/>
+              <input
+                matInput
+                placeholder="*******"
+                formControlName="pass2"
+                [type]="passHide ? 'password' : 'text'"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="passHide = !passHide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="passHide"
+              >
+                <mat-icon>{{
+                  passHide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
             </mat-form-field>
           </form>
         </mat-step>
@@ -78,7 +110,9 @@
           <ng-template matStepLabel>Done</ng-template>
           <p>You are now done.</p>
           <div>
-            <button mat-raised-button color="primary" (click)="onSubmit()">Register</button>
+            <button mat-raised-button color="primary" (click)="onSubmit()">
+              Register
+            </button>
             <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
           </div>
           <div *ngIf="isLoading">
