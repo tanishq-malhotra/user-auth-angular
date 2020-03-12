@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   passFormGroup: FormGroup;
   cpassFormGroup: FormGroup;
   phoneFormGroup: FormGroup;
+
   constructor(
     private userService: UserService,
     private router: Router,

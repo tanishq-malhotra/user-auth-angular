@@ -15,9 +15,13 @@ import { MatListModule } from "@angular/material/list";
 import { MatSortModule } from "@angular/material/sort";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatBottomSheetModule } from "@angular/material/bottom-sheet";
-
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatSelectModule } from "@angular/material/select";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
 @NgModule({
   exports: [
+    MatDialogModule,
     MatStepperModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -32,7 +36,10 @@ import { MatBottomSheetModule } from "@angular/material/bottom-sheet";
     MatListModule,
     MatSortModule,
     MatPaginatorModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialComponents {}

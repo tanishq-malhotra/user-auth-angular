@@ -20,7 +20,9 @@ import { DropdownDirective } from "./_shared/dropdown.directive";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { JwtInterceptor } from "@app/_helpers/jwt_interceptors";
 import { EditComponent } from "./edit/edit.component";
-import { BottomModalSheetComponent } from './bottom-modal-sheet/bottom-modal-sheet.component';
+import { BottomModalSheetComponent } from "./bottom-modal-sheet/bottom-modal-sheet.component";
+import { TaskDialogComponent } from "./task-dialog/task.dialog.component";
+import { TaskDetailComponent } from './task-detail/task-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { BottomModalSheetComponent } from './bottom-modal-sheet/bottom-modal-she
     DropdownDirective,
     EditComponent,
     BottomModalSheetComponent,
+    TaskDialogComponent,
+    TaskDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,7 @@ import { BottomModalSheetComponent } from './bottom-modal-sheet/bottom-modal-she
     HttpClientModule,
     MaterialComponents
   ],
-  entryComponents: [BottomModalSheetComponent],
+  entryComponents: [BottomModalSheetComponent, TaskDialogComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
