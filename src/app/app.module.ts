@@ -20,7 +20,7 @@ import { DropdownDirective } from "./_shared/dropdown.directive";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { JwtInterceptor } from "@app/_helpers/jwt_interceptors";
 import { EditComponent } from "./edit/edit.component";
-import { ImportDataComponent } from "./import-data/import-data.component";
+import { BottomModalSheetComponent } from './bottom-modal-sheet/bottom-modal-sheet.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { ImportDataComponent } from "./import-data/import-data.component";
     HomeComponent,
     DropdownDirective,
     EditComponent,
-    ImportDataComponent
+    BottomModalSheetComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +43,7 @@ import { ImportDataComponent } from "./import-data/import-data.component";
     HttpClientModule,
     MaterialComponents
   ],
+  entryComponents: [BottomModalSheetComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],

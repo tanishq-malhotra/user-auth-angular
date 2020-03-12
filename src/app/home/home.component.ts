@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { Subscription } from "rxjs";
+import {MatPaginator} from '@angular/material/paginator';
 
 import { UserService } from "@app/_services";
 
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(private userService: UserService) {}
 
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.users = data["data"];
         this.dataSource = new MatTableDataSource(this.users);
         this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
       },
       err => {
         console.log(err);

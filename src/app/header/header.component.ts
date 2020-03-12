@@ -1,9 +1,13 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-
+import { Component, OnInit, OnDestroy, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { UserModel } from "@app/_models";
+import { MatBottomSheet } from "@angular/material/bottom-sheet";
+
 import { AuthService } from "@app/_services";
-import { Router } from "@angular/router";
+import { BottomModalSheetComponent } from "@app/bottom-modal-sheet/bottom-modal-sheet.component";
+import { MatSidenav } from "@angular/material/sidenav";
+
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
@@ -12,7 +16,12 @@ import { Router } from "@angular/router";
 export class HeaderComponent implements OnInit, OnDestroy {
   currentUser: UserModel = null;
   userSubscription: Subscription;
-  constructor(private authService: AuthService, private router: Router) {}
+  @ViewChild("sidenav", { static: true }) sidenav: MatSidenav;
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private _bottomSheet: MatBottomSheet
+  ) {}
   ngOnInit() {
     this.userSubscription = this.authService.currentUser.subscribe(
       user => (this.currentUser = user)
@@ -26,5 +35,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logout() {
     this.authService.logout();
     this.router.navigate(["/login"]);
+  }
+
+  openBottomSheet(): void {
+    this.sidenav.toggle();
+    this._bottomSheet.open(BottomModalSheetComponent);
   }
 }

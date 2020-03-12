@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button>
-      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-    </button>
+    <div *ngIf="currentUser">
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+    </div>
     <h1 style="margin-left: 20px;">MyApp</h1>
     <span class="menu-spacer"></span>
     <div class="btn-align" *ngIf="!currentUser">
@@ -25,7 +27,7 @@
         <a mat-list-item routerLink="/editUser"> Edit User </a>
       </mat-list-item>
       <mat-list-item>
-        <a mat-list-item routerLink="/importUsers"> Import Users </a>
+        <a mat-list-item (click)="openBottomSheet()"> Import Users </a>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
